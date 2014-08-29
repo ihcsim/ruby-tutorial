@@ -7,7 +7,6 @@ while index < 10
   numbers[index] = Random.rand(1000)
   index += 1
 end
-
 print("New list: ",numbers, "\n")
 
 limit = 1..300
@@ -15,14 +14,15 @@ print("Acceptable range is: ", limit, "\n")
 print("Range max: ", limit.max, "\n")
 print("Range min: ", limit.min, "\n")
 
-index = 0
 in_range = []
 out_range = []
-for index in numbers
-  if 5.between?(1,30)
-    print("Success")
+for i in 0..9
+  if limit.include?(numbers[i])
+    in_range.push(numbers[i])
   else
-    print("Failure")
+    out_range.push(numbers[i])
   end
 end
-print("\n")
+
+print("In-range: ", in_range,"\n")
+print("Out-of-range: ", out_range,"\n")
