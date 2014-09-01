@@ -4,10 +4,14 @@ class Shape
     @y_coord = y_coord
   end
 
-  attr_reader :x, :y
+  attr_reader :x_coord, :y_coord
   
   def move(new_x, new_y)
-    @x_coord = new _x
+    @x_coord = new_x
     @y_coord = new_y
-  end 
+  end
+
+  def to_s
+    return "x-y coordinates:(" + @x_coord.to_s + "," + @y_coord.to_s + ")"
+  end
 end
