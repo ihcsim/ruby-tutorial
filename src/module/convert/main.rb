@@ -12,14 +12,20 @@ print "250F = " + Convert::Temperature.fahrenheit_to_celsius(temperature_in_fahr
 temperature_in_fahrenheit = 0
 print "0F = " + Convert::Temperature.fahrenheit_to_celsius(temperature_in_fahrenheit).to_s + "C\n"
 
+def requestForNumericInput
+  new_input = nil
+  until new_input.is_a?Numeric
+    print "Please provide a numeric input: "
+    new_input = gets
+    new_input = Float(new_input.chomp) rescue nil
+  end
+  return new_input
+end
+
 begin
   temperature_in_fahrenheit = "A string"
   print "Bad input..." + Convert::Temperature.fahrenheit_to_celsius(temperature_in_fahrenheit).to_s + "C\n"
 rescue ArgumentError
-  until temperature_in_fahrenheit.is_a?Numeric
-    print "Please provide a numeric input: "
-    new_input = gets
-    temperature_in_fahrenheit = Float(new_input.chomp) rescue nil
-  end
-  print temperature_in_fahrenheit.to_s + "F = " + Convert::Temperature.fahrenheit_to_celsius(temperature_in_fahrenheit).to_s + "C\n"
+  new_input = requestForNumericInput()
+  print new_input.to_s + "F = " + Convert::Temperature.fahrenheit_to_celsius(new_input).to_s + "C\n"
 end
