@@ -25,11 +25,15 @@ module Math
     end
 
     def self.quotient(operand_1, operand_2, *operands)
-      total = Integer(operand_1)/Integer(operand_2)
-      operands.each do |operand|
-        total /= Integer(operand)
+      begin
+        total = Integer(operand_1)/Integer(operand_2)
+        operands.each do |operand|    
+          total /= Integer(operand)
+        return total
+        end
+      rescue ZeroDivisionError => illegalDenominatorException
+        print "An error has occurred in the Arithmetic.quotient method: " + illegalDenominatorException.to_s + "\n"
       end
-      return total
     end
   end
 end
