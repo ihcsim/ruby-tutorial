@@ -2,6 +2,7 @@
 # To run, execute $ruby main.rb
 
 require_relative "arithmetic"
+require_relative "set"
 
 operand_1 = 5
 operand_2 = 5
@@ -19,3 +20,7 @@ operand_1 = 1024
 operand_2 = 4
 print("((((1024/4)/4)/4)/4)=" + Math::Arithmetic.quotient(operand_1, operand_2, 4, 4, 4).to_s + "\n")
 
+list1 = [1,2,3,4,5,6,7]
+list2 = [3,4,5,6,7,8,9]
+print("The intersection of [1, 2, 3, 4, 5, 6, 7] and [3, 4, 5, 6, 7, 8, 9] is " + Math::Set.intersect(list1, list2).to_s + "\n")
+print("The union of [1, 2, 3, 4, 5, 6, 7] and [3, 4, 5, 6, 7, 8, 9] is " + Math::Set.union(list1, list2).to_s + "\n")
