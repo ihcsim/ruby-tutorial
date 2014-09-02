@@ -29,3 +29,13 @@ rescue ArgumentError
   new_input = requestForNumericInput()
   print new_input.to_s + "F = " + Convert::Temperature.fahrenheit_to_celsius(new_input).to_s + "C\n"
 end
+
+temperature_in_celsius = 100
+print "100C = " + Convert::Temperature.celsius_to_fahrenheit(temperature_in_celsius).to_s + "C\n"
+
+temperature_in_celsius = 250
+print "250C = " + Convert::Temperature.celsius_to_fahrenheit(temperature_in_celsius).to_s + "C\n"
+
+temperature_in_celsius = 0
+print "0C = " + Convert::Temperature.celsius_to_fahrenheit(temperature_in_celsius).to_s + "C\n"
+
