@@ -1,7 +1,7 @@
 # A simple ruby math module.
 # To run, execute $ruby main.rb
 
-require_relative "math"
+require_relative "arithmetic"
 
 operand_1 = 5
 operand_2 = 5
