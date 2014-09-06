@@ -11,6 +11,7 @@ class TestUnless < MiniTest::Unit::TestCase
   def test_games_count    
     assert_equal(4, games_count)
     assert_equal(4, games_count_refactor)
+    assert_equal(4, games_count_refactor_oneline)
   end
 
   def games_count
@@ -23,5 +24,9 @@ class TestUnless < MiniTest::Unit::TestCase
     unless @games.empty?
       @games.count
     end
+  end
+
+  def games_count_refactor_oneline
+    @games.count unless @games.empty?
   end
 end
