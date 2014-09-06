@@ -9,9 +9,9 @@ class TestUnless < MiniTest::Unit::TestCase
   end
 
   def test_games_count    
-    assert_equal(4, games_count)
-    assert_equal(4, games_count_refactor)
-    assert_equal(4, games_count_refactor_oneline)
+    assert_equal 4, games_count
+    assert_equal 4, games_count_refactor
+    assert_equal 4, games_count_refactor_oneline
   end
 
   def games_count

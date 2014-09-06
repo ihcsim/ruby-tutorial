@@ -10,14 +10,14 @@ class TestNil < MiniTest::Unit::TestCase
 
   def test_search_exist_game
     search = "Contra"
-    assert_equal(1, search_index(search))
-    assert_equal(1, search_index_refactor(search))
+    assert_equal 1, search_index(search)
+    assert_equal 1, search_index_refactor(search)
   end
 
   def test_search_nonexist_game
     search = "Final Fantasy 3"
-    assert_equal(-1, search_index(search))
-    assert_equal(-1, search_index_refactor(search))
+    assert_equal -1, search_index(search)
+    assert_equal -1, search_index_refactor(search)
   end
 
   def search_index(key)
