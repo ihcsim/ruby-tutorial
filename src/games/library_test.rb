@@ -33,4 +33,19 @@ class TestLibrary < MiniTest::Unit::TestCase
     non_existing_game = Game.new('Grand Turismo', system:'Play Station', year:2000);
     assert !@library.has_game?(non_existing_game)
   end
+
+  def test_can_add_new_game
+    new_game = Game.new('Grand Turismo', system:'Play Station', year:2000);
+    @library.add_game(new_game)
+    assert @library.has_game?(new_game)
+  end
+
+  def test_avoid_duplicates
+    new_game = Game.new('Grand Turismo', system:'Play Station', year:2000);
+    @library.add_game(new_game)
+    @library.add_game(new_game)
+    assert_equal 4, @library.count
+  end
+
+
 end

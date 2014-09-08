@@ -12,5 +12,13 @@ class Library
     return false
   end
 
+  def add_game(new_game)
+    @games.push(new_game) unless @games.include?(new_game)
+  end
+
+  def count
+    @games.count
+  end
+
   attr_accessor :games
 end
