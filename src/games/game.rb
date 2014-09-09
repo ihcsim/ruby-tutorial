@@ -10,6 +10,10 @@ class Game
     @created_at = Time.now
   end
 
+  def to_s
+    "Name: " + @name + ", System:: " + @system  + ", Year: " + @year.to_s
+  end
+
   attr_accessor :name, :year, :system
   attr_reader :created_at
 end

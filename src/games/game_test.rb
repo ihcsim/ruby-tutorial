@@ -26,4 +26,9 @@ class TestGames < MiniTest::Unit::TestCase
      @bad_game = Game.new(nil, year:@year, system:@system)
     end
   end
+
+  def test_to_s
+    expected_string = "Name: " + @name + ", System:: " + @system  + ", Year: " + @year.to_s
+    assert_equal expected_string, @sf_game.to_s
+  end
 end
