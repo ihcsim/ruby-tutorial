@@ -5,7 +5,7 @@ require './arcade_game'
 class TestArcadeGame < MiniTest::Unit::TestCase
   def setup
     @name = 'Street Fighter X'
-    @ssytem = 'Atari'
+    @system = 'Atari'
     @year = 1997
     @weight = 565
     @new_game = ArcadeGame.new(@name, system:@system, year: @year, weight: @weight)
@@ -27,5 +27,10 @@ class TestArcadeGame < MiniTest::Unit::TestCase
 
   def test_arcade_game_has_weight_attribute
     assert_equal @weight, @new_game.weight
+  end
+
+  def test_to_s
+    expected_string = "Name: " + @name + ", System:: " + @system  + ", Year: " + @year.to_s + ", Weight: " + @weight.to_s
+    assert_equal expected_string, @new_game.to_s
   end
 end
