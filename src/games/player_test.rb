@@ -17,4 +17,10 @@ class TestPlayer < MiniTest::Unit::TestCase
     assert_equal @favourites, @player.favourites
   end
 
+  def test_players_favourites_differences
+    player2 = Player.new
+    player2.favourites = ['Final Fantasy 3', 'Pokemon 1st Gen', 'Contraband']
+    expected_differences = ['Street Fighter 2', 'Metroid', 'Pokemon 1st Gen', 'Contraband']
+    assert_equal expected_differences, @player.diff_fav(player2)
+  end
 end
