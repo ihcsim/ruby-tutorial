@@ -3,7 +3,7 @@ class Player
     @favourites = []
   end
 
-  def diff_fav(player)
+  def diff_favs(player)
     (@favourites - player.favourites).concat(player.favourites - @favourites)
   end
 
