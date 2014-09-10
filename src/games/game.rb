@@ -7,6 +7,7 @@ class Game
     @name = name
     @year = options[:year]
     @system = options[:system]
+    @release_date = options[:release_date]
     @created_at = Time.now
   end
 
@@ -14,6 +15,10 @@ class Game
     "Name: " + @name + ", System:: " + @system  + ", Year: " + @year.to_s
   end
 
-  attr_accessor :name, :year, :system
+  def anniversary
+    @year
+  end
+
+  attr_accessor :name, :year, :system, :release_date
   attr_reader :created_at
 end
