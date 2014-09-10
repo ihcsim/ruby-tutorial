@@ -35,9 +35,9 @@ class TestGames < MiniTest::Unit::TestCase
     assert_equal expected_string, @sf_game.to_s
   end
 
-# def test_game_anniversary
-#   accrue_years = 4
-#   expected_anniversary_year = 1996
-#   assert_equal expected_anniversary_year, @sf_game.anniversary(accrue_years)
-# end
+ def test_game_anniversary
+   accrue_years = 4
+   expected_anniversary_year = @release_date.advance(years: accrue_years)
+   assert_equal expected_anniversary_year, @sf_game.anniversary(accrue_years)
+ end
 end

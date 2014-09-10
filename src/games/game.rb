@@ -1,4 +1,3 @@
-
 require './invalid_game_error'
 
 class Game
@@ -15,8 +14,8 @@ class Game
     "Name: " + @name + ", System:: " + @system  + ", Year: " + @year.to_s
   end
 
-  def anniversary
-    @year
+  def anniversary(accrue_years)
+    @release_date.advance(years: accrue_years)
   end
 
   attr_accessor :name, :year, :system, :release_date
