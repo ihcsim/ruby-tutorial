@@ -9,7 +9,9 @@ class TestLibrary < MiniTest::Unit::TestCase
     @game1 = Game.new('Street Fighter 2', year:1992, system:'SNES')
     @game2 = Game.new('Final Fantasy 3', year:1994, system:'SNES')
     @game3 = Game.new('Super Mario Bros.', year:1992, system:'SNES')
-    @games = [@game1, @game2, @game3]
+    @game4 = Game.new('Double Dragon 3', year:1997, system:'Sega')
+    @game5 = Game.new('American Ninja', year:1999, system:'Sega')
+    @games = [@game1, @game2, @game3, @game4, @game5]
     @library = Library.new(@games);
   end
 
@@ -45,7 +47,7 @@ class TestLibrary < MiniTest::Unit::TestCase
     new_game = Game.new('Grand Turismo', system:'Play Station', year:2000);
     @library.add_game(new_game)
     @library.add_game(new_game)
-    assert_equal 4, @library.count
+    assert_equal 6, @library.count
   end
 
   def test_can_save_games
@@ -59,6 +61,10 @@ class TestLibrary < MiniTest::Unit::TestCase
   end
 
   def test_list_all_games
+    assert_equal @games.map(&:name),@library.list_games_names
+  end
+
+  def test_filter_games_by_system
     assert_equal @games.map(&:name),@library.list_games_names
   end
 end
