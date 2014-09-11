@@ -45,7 +45,15 @@ class Game
   end
 
   def screenshots_count
-    @emulator.screenshots_count
+    emulate do |emulator|
+      return emulator.screenshots_count
+    end
+  end
+
+  def session
+    emulate do |emulator|
+      return @emulator.session
+    end
   end
 
   attr_accessor :name, :year, :system, :release_date, :price

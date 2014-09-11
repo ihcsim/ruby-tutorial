@@ -71,4 +71,12 @@ class TestGames < MiniTest::Unit::TestCase
     @sf_game.screenshot
     assert (@sf_game.screenshots_count > 0)
   end
+
+  def test_session_remains_constant
+    expected_session = @sf_game.session
+    @sf_game.play
+    @sf_game.screenshot
+    @sf_game.exit
+    assert_equal expected_session, @sf_game.session
+  end
 end
