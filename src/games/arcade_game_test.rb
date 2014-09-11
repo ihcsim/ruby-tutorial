@@ -33,4 +33,9 @@ class TestArcadeGame < MiniTest::Unit::TestCase
     expected_string = "Name: " + @name + ", System:: " + @system  + ", Year: " + @year.to_s + ", Weight: " + @weight.to_s
     assert_equal expected_string, @new_game.to_s
   end
+
+  def test_is_persistable
+    assert_equal @new_game, @new_game.save
+    assert @new_game.delete
+  end
 end

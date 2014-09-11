@@ -19,5 +19,9 @@ class TestConsoleGame < MiniTest::Unit::TestCase
     assert_equal @system, @new_game.system
     assert_equal @year, @new_game.year
   end
-end
 
+  def test_is_persistable
+    assert_equal @new_game, @new_game.save
+    assert @new_game.delete
+  end
+end
