@@ -30,4 +30,9 @@ class TestPlayer < MiniTest::Unit::TestCase
     expected_differences = ['Final Fantasy 3']
     assert_equal expected_differences, @player.same_favs(player2)
   end
+
+  def test_is_persistable
+    assert_equal @player, @player.save
+    assert @player.delete
+  end
 end

@@ -1,4 +1,8 @@
+require './persistable'
+
 class Player
+  include Persistable
+
   def initialize
     @favourites = []
   end
