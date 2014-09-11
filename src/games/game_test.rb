@@ -2,6 +2,7 @@
 require 'minitest/autorun'
 require 'active_support/all'
 require './game'
+require './emulator'
 require './invalid_game_error'
 require './attr_setter'
 
@@ -54,5 +55,20 @@ class TestGames < MiniTest::Unit::TestCase
     timestamp = DateTime.new(2014, 9, 10, 20, 30, 8)
     @sf_game.fixed_timestamp(timestamp)
     assert_equal timestamp, @sf_game.created_on
+  end
+
+  def test_can_play
+    @sf_game.play
+    assert @sf_game.game_started
+  end
+
+  def test_can_stop
+    @sf_game.exit
+    assert (not @sf_game.game_started)
+  end
+
+  def test_can_take_screenshots
+    @sf_game.screenshot
+    assert (@sf_game.screenshots_count > 0)
   end
 end
