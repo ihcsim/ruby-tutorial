@@ -81,13 +81,17 @@ class TestLibrary < MiniTest::Unit::TestCase
       game.price -= 5.00
     end
     expected_sega_game_price = 34.99
-#    assert_equal @library.list_games_by_system(sega_system), collected_games
+    @library.list_games_by_system(sega_system).each do |game|
+      assert expected_sega_game_price, game.price
+    end
 
     snes_system = 'SNES'
     @library.collect_by_system(snes_system) do |game|
       game.price -= 10.00
     end
     expected_snes_game_price = 19.99
- #   assert expected_snes_game_price,@library.list_games_by_system(snes_system)
+    @library.list_games_by_system(snes_system).each do |game|
+      assert expected_snes_game_price, game.price
+    end
   end
 end
