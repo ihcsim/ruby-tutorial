@@ -37,16 +37,16 @@ class Library
     @games.count == 0
   end
 
-  def list_games_names
-    list_games_names_by_system
+  def list_games
+    list_games_by_system
   end
 
-  def list_games_names_by_system(system = nil)
-    games_names = []
+  def list_games_by_system(system = nil)
+    games = []
     @games.each do |game|
-      games_names.push(game.name) unless (system &&  game.system  != system)
+      games.push(game) unless (system &&  game.system  != system)
     end
-    games_names
+    games
   end
 
   attr_accessor :games
