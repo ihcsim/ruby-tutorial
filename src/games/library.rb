@@ -26,5 +26,16 @@ class Library
     end
   end
 
+  def delete_all
+    @games.each do |game|
+      game.delete
+    end
+    @games.clear
+  end
+
+  def is_empty?
+    @games.count == 0
+  end
+
   attr_accessor :games
 end

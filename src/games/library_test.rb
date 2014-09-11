@@ -51,4 +51,9 @@ class TestLibrary < MiniTest::Unit::TestCase
     saved_games = @library.save_all
     assert_equal @games, saved_games
   end
+
+  def test_can_delete_all_games
+    assert @library.delete_all
+    assert @library.is_empty?
+  end
 end
