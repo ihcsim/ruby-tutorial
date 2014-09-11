@@ -10,7 +10,7 @@ class Game
     @year = options[:year]
     @system = options[:system]
     @release_date = options[:release_date]
-    @created_at = Time.now
+    @created_on = DateTime.now
   end
 
   def to_s
@@ -22,5 +22,5 @@ class Game
   end
 
   attr_accessor :name, :year, :system, :release_date
-  attr_reader :created_at
+  attr_reader :created_on
 end

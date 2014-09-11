@@ -3,6 +3,7 @@ require 'minitest/autorun'
 require 'active_support/all'
 require './game'
 require './invalid_game_error'
+require './attr_setter'
 
 class TestGames < MiniTest::Unit::TestCase
   def setup
@@ -44,5 +45,12 @@ class TestGames < MiniTest::Unit::TestCase
   def test_is_persistable
     assert_equal @sf_game, @sf_game.save
     assert @sf_game.delete
+  end
+
+  def test_created_on_timestamp
+    @sf_game.extend(TestAttributeSetter)
+    timestamp = DateTime.new(2014, 9, 10, 20, 30, 8)
+    @sf_game.fixed_timestamp(timestamp)
+    assert_equal timestamp, @sf_game.created_on
   end
 end
