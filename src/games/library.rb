@@ -49,5 +49,11 @@ class Library
     games
   end
 
+  def collect_by_system(system)
+    @games.each do |game|
+      yield game unless game.system != system
+    end
+  end
+
   attr_accessor :games
 end

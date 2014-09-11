@@ -6,11 +6,11 @@ require './library'
 
 class TestLibrary < MiniTest::Unit::TestCase
   def setup
-    @game1 = Game.new('Street Fighter 2', year:1992, system:'SNES')
-    @game2 = Game.new('Final Fantasy 3', year:1994, system:'SNES')
-    @game3 = Game.new('Super Mario Bros.', year:1992, system:'SNES')
-    @game4 = Game.new('Double Dragon 3', year:1997, system:'Sega')
-    @game5 = Game.new('American Ninja', year:1999, system:'Sega')
+    @game1 = Game.new('Street Fighter 2', year:1992, system:'SNES', price: 29.99)
+    @game2 = Game.new('Final Fantasy 3', year:1994, system:'SNES', price: 29.99)
+    @game3 = Game.new('Super Mario Bros.', year:1992, system:'SNES', price: 29.99)
+    @game4 = Game.new('Double Dragon 3', year:1997, system:'Sega', price: 39.99)
+    @game5 = Game.new('American Ninja', year:1999, system:'Sega', price: 39.99)
     @games = [@game1, @game2, @game3, @game4, @game5]
     @library = Library.new(@games);
   end
@@ -73,5 +73,21 @@ class TestLibrary < MiniTest::Unit::TestCase
     assert_equal @game1, snes_games[0]
     assert_equal @game2, snes_games[1]
     assert_equal @game3, snes_games[2]
+  end
+
+  def test_collect_games_for_discount
+    sega_system = 'Sega'
+    @library.collect_by_system(sega_system) do |game|
+      game.price -= 5.00
+    end
+    expected_sega_game_price = 34.99
+#    assert_equal @library.list_games_by_system(sega_system), collected_games
+
+    snes_system = 'SNES'
+    @library.collect_by_system(snes_system) do |game|
+      game.price -= 10.00
+    end
+    expected_snes_game_price = 19.99
+ #   assert expected_snes_game_price,@library.list_games_by_system(snes_system)
   end
 end
