@@ -20,5 +20,11 @@ class Library
     @games.count
   end
 
+  def save_all
+    @games.each do |game|
+      game.save
+    end
+  end
+
   attr_accessor :games
 end

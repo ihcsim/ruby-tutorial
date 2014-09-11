@@ -47,5 +47,8 @@ class TestLibrary < MiniTest::Unit::TestCase
     assert_equal 4, @library.count
   end
 
-
+  def test_can_save_games
+    saved_games = @library.save_all
+    assert_equal @games, saved_games
+  end
 end
