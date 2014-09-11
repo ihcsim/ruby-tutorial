@@ -38,17 +38,13 @@ class Library
   end
 
   def list_games_names
-    games_names = []
-    @games.each do |game|
-      games_names.push(game.name)
-    end
-    games_names
+    list_games_names_by_system
   end
 
-  def list_games_names_by_system(system)
+  def list_games_names_by_system(system = nil)
     games_names = []
     @games.each do |game|
-      games_names.push(game.name) unless not game.system .eql?(system)
+      games_names.push(game.name) unless (system &&  game.system  != system)
     end
     games_names
   end
