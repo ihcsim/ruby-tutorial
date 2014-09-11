@@ -1,6 +1,9 @@
 require './invalid_game_error'
+require './persistable'
 
 class Game
+  include Persistable
+
   def initialize(name, options=[])
     raise InvalidGameError unless name
     @name = name
