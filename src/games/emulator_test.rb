@@ -6,8 +6,8 @@ require 'active_support/all'
 class TestEmulator < MiniTest::Unit::TestCase
   def setup
     system = 'PS1'
-    game = Game.new('Mario Cart', system:system)
-    @emulator = Emulator.new(game)
+    @game = Game.new('Mario Cart', system:system)
+    @emulator = Emulator.new(@game)
   end
 
   def test_can_create_emulator
@@ -27,5 +27,14 @@ class TestEmulator < MiniTest::Unit::TestCase
   def test_can_take_screenshots
     @emulator.screenshot
     assert @emulator.screenshots_count > 0
+  end
+
+  def test_can_retrieve_session
+    assert @emulator.session
+  end
+
+  def test_unique_session_for_different_emulators
+    emulator2 = Emulator.new(@game)
+    assert @emulator.session != emulator2.session
   end
 end

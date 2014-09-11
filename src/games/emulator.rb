@@ -3,6 +3,7 @@ class Emulator
     @game = game
     @game_started = false
     @screenshots = []
+    @session = rand(99999)
   end
 
   def play
@@ -21,5 +22,5 @@ class Emulator
     @screenshots.count
   end
 
-  attr_reader :game_started
+  attr_reader :game_started, :session
 end
