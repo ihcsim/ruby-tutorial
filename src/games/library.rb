@@ -37,5 +37,13 @@ class Library
     @games.count == 0
   end
 
+  def list_games_names
+    games_names = []
+    @games.each do |game|
+      games_names.push(game.name)
+    end
+    games_names
+  end
+
   attr_accessor :games
 end

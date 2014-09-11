@@ -1,5 +1,6 @@
 
 require 'minitest/autorun'
+require 'active_support/all'
 require './game'
 require './library'
 
@@ -55,5 +56,9 @@ class TestLibrary < MiniTest::Unit::TestCase
   def test_can_delete_all_games
     assert @library.delete_all
     assert @library.is_empty?
+  end
+
+  def test_list_all_games
+    assert_equal @games.map(&:name),@library.list_games_names
   end
 end
