@@ -65,6 +65,13 @@ class TestLibrary < MiniTest::Unit::TestCase
   end
 
   def test_filter_games_by_system
-    assert_equal @games.map(&:name),@library.list_games_names
+    sega_games = @library.list_games_names_by_system('Sega')
+    assert_equal @game4.name, sega_games[0]
+    assert_equal @game5.name, sega_games[1]
+
+    snes_games = @library.list_games_names_by_system('SNES')
+    assert_equal @game1.name, snes_games[0]
+    assert_equal @game2.name, snes_games[1]
+    assert_equal @game3.name, snes_games[2]
   end
 end

@@ -45,5 +45,13 @@ class Library
     games_names
   end
 
+  def list_games_names_by_system(system)
+    games_names = []
+    @games.each do |game|
+      games_names.push(game.name) unless not game.system .eql?(system)
+    end
+    games_names
+  end
+
   attr_accessor :games
 end
