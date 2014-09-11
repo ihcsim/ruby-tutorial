@@ -42,11 +42,13 @@ class Library
   end
 
   def list_games_by_system(system = nil)
-    games = []
-    @games.each do |game|
-      games.push(game) unless (system &&  game.system  != system)
+    if not system
+      return @games
     end
-    games
+
+    @games.select do |game|
+      system &&  game.system  == system
+    end
   end
 
   def collect_by_system(system)
