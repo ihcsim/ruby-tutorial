@@ -10,17 +10,18 @@ class Game
     @year = options[:year]
     @system = options[:system]
     @release_date = options[:release_date]
+    @price = options[:price]
     @created_on = DateTime.now
   end
 
   def to_s
-    "Name: " + @name + ", System:: " + @system  + ", Year: " + @year.to_s
+    "Name: " + @name + ", System:: " + @system  + ", Year: " + @year.to_s + ", Price: " + @price.to_s
   end
 
   def anniversary(accrue_years)
     @release_date.advance(years: accrue_years)
   end
 
-  attr_accessor :name, :year, :system, :release_date
+  attr_accessor :name, :year, :system, :release_date, :price
   attr_reader :created_on
 end

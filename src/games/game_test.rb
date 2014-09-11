@@ -11,7 +11,8 @@ class TestGames < MiniTest::Unit::TestCase
     @year = 1992
     @release_date = DateTime.new(1992,2,20)
     @system  = 'SNES'
-    @sf_game = Game.new(@name, year:@year, system:@system, release_date: @release_date)
+    @price = 29.99
+    @sf_game = Game.new(@name, year:@year, system:@system, release_date: @release_date, price: @price)
   end
 
   def test_can_create_new_game
@@ -23,6 +24,7 @@ class TestGames < MiniTest::Unit::TestCase
     assert_equal @year,@sf_game.year
     assert_equal @system,@sf_game.system
     assert_equal @release_date, @sf_game.release_date
+    assert_equal @price, @sf_game.price
   end
 
   def test_name_must_exist
@@ -32,7 +34,7 @@ class TestGames < MiniTest::Unit::TestCase
   end
 
   def test_to_s
-    expected_string = "Name: " + @name + ", System:: " + @system  + ", Year: " + @year.to_s
+    expected_string = "Name: " + @name + ", System:: " + @system  + ", Year: " + @year.to_s + ", Price: "+ @price.to_s
     assert_equal expected_string, @sf_game.to_s
   end
 
