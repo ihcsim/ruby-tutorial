@@ -1,10 +1,10 @@
 module Emulation
-  def emulate
+  def emulate(operation)
     if not @emulator
       @emulator = Emulator.new(self)
     end
 
-    yield @emulator
+    operation.call(@emulator)
     @game_started = @emulator.game_started
   end
 end

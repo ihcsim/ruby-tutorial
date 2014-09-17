@@ -27,33 +27,38 @@ class Game
   end
 
   def play
-    emulate do |emulator|
+    operation = Proc.new do |emulator| 
       emulator.play
     end
+    emulate(operation)
   end
 
   def exit
-    emulate do |emulator|
+    operation = Proc.new do |emulator|
       emulator.exit
     end
+    emulate(operation)
   end
 
   def screenshot
-    emulate do |emulator|
+    operation = Proc.new do |emulator| 
       emulator.screenshot
     end
+    emulate(operation)
   end
 
   def screenshots_count
-    emulate do |emulator|
+    operation = Proc.new do |emulator|
       return emulator.screenshots_count
     end
+    emulate(operation)
   end
 
   def session
-    emulate do |emulator|
+    operation = Proc.new do |emulator|
       return @emulator.session
     end
+    emulate(operation)
   end
 
   attr_accessor :name, :year, :system, :release_date, :price
