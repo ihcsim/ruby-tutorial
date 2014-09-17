@@ -1,5 +1,6 @@
 
 require 'minitest/autorun'
+require 'active_support/all'
 require './console_game'
 
 class TestConsoleGame < MiniTest::Unit::TestCase
@@ -7,7 +8,9 @@ class TestConsoleGame < MiniTest::Unit::TestCase
     @name = 'Final Fantasy 4'
     @system = 'SNES'
     @year = '1997'
-    @new_game = ConsoleGame.new(@name, system:@system, year:@year)
+    @release_date = DateTime.new(1999, 7, 28)
+    @price = 19.99
+    @new_game = ConsoleGame.new(@name, system:@system, year:@year, release_date: @release_date, price: @price)
   end
 
   def test_can_create_console_game
