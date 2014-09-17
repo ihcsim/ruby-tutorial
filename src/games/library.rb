@@ -57,5 +57,11 @@ class Library
     end
   end
 
+  def collect_all(operation)    
+    @games.map do |game|
+      operation.call(game)
+    end
+  end
+
   attr_accessor :games
 end

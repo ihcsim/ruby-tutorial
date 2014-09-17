@@ -94,4 +94,19 @@ class TestLibrary < Minitest::Test
       assert expected_snes_game_price, game.price
     end
   end
+
+  def test_retrieve_games_price
+    retrieve_descriptions = Proc.new do |game|
+      "Name: " + game.name + ", Price: $" + game.price.to_s
+    end
+    games_descriptions = @library.collect_all(retrieve_descriptions)
+    assert games_descriptions
+    assert_equal 5, games_descriptions.count
+
+    assert_equal "Name: " + @game1.name + ", Price: $" + @game1.price.to_s, games_descriptions[0]
+    assert_equal "Name: " + @game2.name + ", Price: $" + @game2.price.to_s, games_descriptions[1]
+    assert_equal "Name: " + @game3.name + ", Price: $" + @game3.price.to_s, games_descriptions[2]
+    assert_equal "Name: " + @game4.name + ", Price: $" + @game4.price.to_s, games_descriptions[3]
+    assert_equal "Name: " + @game5.name + ", Price: $" + @game5.price.to_s, games_descriptions[4]
+  end
 end
