@@ -1,5 +1,6 @@
 
 require 'minitest/autorun'
+require 'active_support/all'
 require './arcade_game'
 
 class TestArcadeGame < MiniTest::Unit::TestCase
@@ -7,8 +8,10 @@ class TestArcadeGame < MiniTest::Unit::TestCase
     @name = 'Street Fighter X'
     @system = 'Atari'
     @year = 1997
+    @release_date = DateTime.new(1995, 1, 31)
+    @price = 299.99    
     @weight = 565
-    @new_game = ArcadeGame.new(@name, system:@system, year: @year, weight: @weight)
+    @new_game = ArcadeGame.new(@name, system:@system, year: @year, release_date: @release_date, price: @price, weight: @weight)
   end
 
   def test_can_create_arcade_game
@@ -30,7 +33,7 @@ class TestArcadeGame < MiniTest::Unit::TestCase
   end
 
   def test_to_s
-    expected_string = "Name: " + @name + ", System:: " + @system  + ", Year: " + @year.to_s + ", Weight: " + @weight.to_s
+    expected_string = "Name: " + @name + ", System:: " + @system  + ", Year: " + @year.to_s + ", Price: " + @price.to_s + ", Weight: " + @weight.to_s
     assert_equal expected_string, @new_game.to_s
   end
 
