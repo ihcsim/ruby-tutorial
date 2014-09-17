@@ -1,10 +1,10 @@
-
+require 'minitest/test'
 require 'minitest/autorun'
 require 'active_support/all'
 require './game'
 require './library'
 
-class TestLibrary < MiniTest::Unit::TestCase
+class TestLibrary < Minitest::Test
   def setup
     @game1 = Game.new('Street Fighter 2', year:1992, system:'SNES', price: 29.99)
     @game2 = Game.new('Final Fantasy 3', year:1994, system:'SNES', price: 29.99)

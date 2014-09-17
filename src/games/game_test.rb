@@ -1,4 +1,4 @@
-
+require 'minitest/test'
 require 'minitest/autorun'
 require 'active_support/all'
 require './game'
@@ -6,7 +6,7 @@ require './emulator'
 require './invalid_game_error'
 require './attr_setter'
 
-class TestGames < MiniTest::Unit::TestCase
+class TestGames < Minitest::Test
   def setup
     @name = 'Street Fighter'
     @year = 1992

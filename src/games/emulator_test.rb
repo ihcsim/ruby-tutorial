@@ -1,9 +1,10 @@
+require 'minitest/test'
 require 'minitest/autorun'
 require './emulator'
 require './game'
 require 'active_support/all'
 
-class TestEmulator < MiniTest::Unit::TestCase
+class TestEmulator < Minitest::Test
   def setup
     system = 'PS1'
     @game = Game.new('Mario Cart', system:system)

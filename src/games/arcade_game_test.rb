@@ -1,9 +1,9 @@
-
+require 'minitest/test'
 require 'minitest/autorun'
 require 'active_support/all'
 require './arcade_game'
 
-class TestArcadeGame < MiniTest::Unit::TestCase
+class TestArcadeGame < Minitest::Test
   def setup
     @name = 'Street Fighter X'
     @system = 'Atari'

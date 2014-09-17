@@ -1,8 +1,8 @@
-
+require 'minitest/test'
 require 'minitest/autorun'
 require './player'
 
-class TestPlayer < MiniTest::Unit::TestCase
+class TestPlayer < Minitest::Test
   def setup
     @favourites = ['Street Fighter 2', 'Final Fantasy 3', 'Metroid']
     @player = Player.new

@@ -1,9 +1,9 @@
-
+require 'minitest/test'
 require 'minitest/autorun'
 require 'active_support/all'
 require './console_game'
 
-class TestConsoleGame < MiniTest::Unit::TestCase
+class TestConsoleGame < Minitest::Test
   def setup
     @name = 'Final Fantasy 4'
     @system = 'SNES'
