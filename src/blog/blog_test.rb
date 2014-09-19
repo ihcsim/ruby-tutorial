@@ -39,4 +39,22 @@ class BlogTest < Minitest::Test
     expected_output = @title + "\n" + @content + "\n\nBy: " + @author + "\n(posted on " + timestamp.strftime("%m/%d/%Y at %I:%M%p") + ")\n"
     assert_equal expected_output, @blog.print
   end
+
+  def test_blog_is_in_draft_status
+    @blog.draft
+    assert_equal :draft, @blog.status
+  end
+
+  def test_blog_is_in_published_status
+    @blog.publish
+    assert_equal :published, @blog.status
+  end
+
+  def test_blog_is_in_archive_status
+    @blog.archive
+    assert_equal :archived, @blog.status
+  end
+
+
+
 end
