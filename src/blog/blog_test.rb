@@ -47,12 +47,12 @@ class BlogTest < Minitest::Test
 
   def test_blog_is_in_published_status
     @blog.publish
-    assert_equal :published, @blog.status
+    assert_equal :publish, @blog.status
   end
 
   def test_blog_is_in_archive_status
     @blog.archive
-    assert_equal :archived, @blog.status
+    assert_equal :archive, @blog.status
   end
 
 
