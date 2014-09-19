@@ -1,7 +1,19 @@
 # Simple test for blog.rb.
 # To run, execute $ruby test.rb
 
-require_relative 'blog'
+require 'minitest/test'
+require 'minitest/autorun'
+require './blog'
 
-first_blog = Blog.new('JB', 'First Post', 'This is my very first post. I\'m feeling lucky.')
-puts first_blog.to_s
+class BlogTest < Minitest::Test 
+  def setup
+    @author = 'JB'
+    @title = 'First Post'
+    @content = 'This is my first post. I\'m feeling lucky.'
+    @first_blog = Blog.new(@author, @title, @content)
+  end
+
+  def test_can_create_blog
+      assert @first_blog
+  end
+end
