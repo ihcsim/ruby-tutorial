@@ -11,7 +11,7 @@ class BlogTest < Minitest::Test
   def setup
     @author = 'JB'
     @title = 'First Post'
-    @content = 'This is my first post. I\'m feeling lucky.'
+    @content = 'This is my first post. I\'m  feeling lucky.'
     @blog = Blog.new(@author, @title, @content)
   end
 
@@ -30,5 +30,13 @@ class BlogTest < Minitest::Test
     timestamp = DateTime.new(2014,7,31)
     @blog.date_posted = timestamp
     assert_equal timestamp, @blog.date_posted
+  end
+
+  def test_print
+    @blog.extend(DatePostedTester)
+    timestamp = DateTime.new(2014,7,31)
+    @blog.date_posted = timestamp
+    expected_output = @title + "\n" + @content + "\n\nBy: " + @author + "\n(posted on " + timestamp.strftime("%m/%d/%Y at %I:%M%p") + ")\n"
+    assert_equal expected_output, @blog.print
   end
 end
