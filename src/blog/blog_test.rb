@@ -10,10 +10,16 @@ class BlogTest < Minitest::Test
     @author = 'JB'
     @title = 'First Post'
     @content = 'This is my first post. I\'m feeling lucky.'
-    @first_blog = Blog.new(@author, @title, @content)
+    @blog = Blog.new(@author, @title, @content)
   end
 
   def test_can_create_blog
-      assert @first_blog
+    assert @blog
+  end
+
+  def test_can_read_blog_attr
+    assert_equal @author, @blog.author
+    assert_equal @title, @blog.title
+    assert_equal @content, @blog.content
   end
 end
