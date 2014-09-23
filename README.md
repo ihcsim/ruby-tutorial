@@ -2,6 +2,7 @@ ruby-tutorial
 =============
 A sample tutorial project based on:
 * [Ruby Bits](http://rubybits.codeschool.com/) by [Code School](https://codeschool.com).
+* [Ruby Bits 2](http://rubybits2.codeschool.com/) by [Code School](https://codeschool.com).
 * [Beginners Ruby Programming Training - No Experience Required](https://www.udemy.com/ruby-programming) by Infinite Skills.
 
 This project contains the following topics:
