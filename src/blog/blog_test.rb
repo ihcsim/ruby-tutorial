@@ -55,6 +55,13 @@ class BlogTest < Minitest::Test
     assert_equal :archive, @blog.status
   end
 
-
-
+  def test_blog_is_in_test_status
+    Blog.class_eval do
+      attr_accessor :id
+    end
+    test_blog = Blog.new(@author, @title, @content);
+    expected_id = 9999
+    test_blog.id = 9999
+    assert_equal expected_id, test_blog.id
+  end
 end
