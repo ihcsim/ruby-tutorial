@@ -10,5 +10,9 @@ class User
     @blogs.last
   end
 
+  def to_s
+    "Fullname: " + @fullname + ", Avatar: " + @avatar
+  end
+
   attr_reader :fullname, :avatar
 end
