@@ -14,6 +14,10 @@ class Blog
     @status = STATES[0]
   end
 
+  def to_s
+    "Author: " + @author + ", Title: " + @title + ", Date Posted: " + @date_posted.strftime('%d/%b/%Y %H:%M:%S') + ", Status: " + @status.to_s
+  end
+
   attr_accessor :author, :date_posted, :title, :content, :status
 
   def show_post

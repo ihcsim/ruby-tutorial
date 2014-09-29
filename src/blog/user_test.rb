@@ -1,6 +1,7 @@
 require 'minitest/test'
 require 'minitest/autorun'
 require './user'
+require './blog'
 
 class UserTest < MiniTest::Test
 
@@ -8,6 +9,11 @@ class UserTest < MiniTest::Test
     @fullname = 'John Dove'
     @avatar = 'hardR0cker'
     @user = User.new(@fullname, @avatar)
+
+    @author = 'JD'
+    @title = 'First Post'
+    @content = 'This is my first post. I\'m  feeling lucky.'
+    @blog = Blog.new(@author, @title, @content)
   end
 
   def test_can_create_user
@@ -17,5 +23,9 @@ class UserTest < MiniTest::Test
   def test_can_retrieve_attributes
     assert_equal @fullname, @user.fullname
     assert_equal @avatar, @user.avatar
+  end
+
+  def test_user_can_create_blog
+    assert_equal @blog, @user.create_blog(@blog)
   end
 end
