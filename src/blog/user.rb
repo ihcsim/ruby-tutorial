@@ -1,8 +1,8 @@
 class User
-  def initialize(username, avatar)
-    @username = username
+  def initialize(fullname, avatar)
+    @fullname = fullname
     @avatar = avatar
   end
 
-  attr_reader :username, :avatar
+  attr_reader :fullname, :avatar
 end

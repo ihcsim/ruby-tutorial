@@ -5,9 +5,9 @@ require './user'
 class UserTest < MiniTest::Test
 
   def setup
-    @username = 'John Dove'
+    @fullname = 'John Dove'
     @avatar = 'hardR0cker'
-    @user = User.new(@username, @avatar)
+    @user = User.new(@fullname, @avatar)
   end
 
   def test_can_create_user
@@ -15,7 +15,7 @@ class UserTest < MiniTest::Test
   end
 
   def test_can_retrieve_attributes
-    assert_equal @username, @user.username
+    assert_equal @fullname, @user.fullname
     assert_equal @avatar, @user.avatar
   end
 end
