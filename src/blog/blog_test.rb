@@ -64,4 +64,8 @@ class BlogTest < Minitest::Test
     test_blog.id = 9999
     assert_equal expected_id, test_blog.id
   end
+
+  def test_default_owner_is_anonymous
+    assert_equal Blog::DEFAULT_ANONYMOUS_OWNER, @blog.owner
+  end
 end
