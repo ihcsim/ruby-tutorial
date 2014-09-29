@@ -27,5 +27,6 @@ class UserTest < MiniTest::Test
 
   def test_user_can_create_blog
     assert_equal @blog, @user.create_blog(@blog)
+    assert_equal @user, @blog.owner
   end
 end

@@ -7,6 +7,7 @@ class User
 
   def create_blog(blog)
     @blogs.push(blog)
+    blog.owner = self
     @blogs.last
   end
 
