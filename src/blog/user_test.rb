@@ -36,9 +36,16 @@ class UserTest < MiniTest::Test
     assert_equal @user.avatar, @blog.owner_avatar
   end
 
+  def test_blog_responds_to_user_messages
+    user_create_blog
+    assert @blog.respond_to?(:owner_fullname)
+    assert @blog.respond_to?(:owner_avatar)
+
+    assert !@blog.respond_to?(:admin_username)
+  end
+
   private
   def user_create_blog
     @user.create_blog(@blog)
   end
-
 end

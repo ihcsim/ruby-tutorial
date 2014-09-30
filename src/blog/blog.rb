@@ -40,4 +40,9 @@ class Blog
       end
     @owner.send(message, *args)
   end
+
+  def respond_to?(method_name)
+    prefix = 'owner_'
+    method_name.to_s.include? prefix || super
+  end
 end
