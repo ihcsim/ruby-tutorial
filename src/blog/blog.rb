@@ -28,4 +28,16 @@ class Blog
   end
 
   alias_method :print, :show_post
+
+  def method_missing(method_name, *args)
+    prefix = 'owner_'
+    message = 
+      if method_name.to_s.include? prefix
+        after_prefix = method_name.to_s.index(prefix) + prefix.length
+        method_name.to_s[after_prefix, method_name.to_s.length]
+      else
+        method_name.to_s
+      end
+    @owner.send(message, *args)
+  end
 end
