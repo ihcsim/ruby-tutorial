@@ -1,6 +1,6 @@
 require 'minitest/test'
 require 'minitest/autorun'
-require '../lib/user'
+require '../lib/blog/user'
 require '../lib/blog'
 
 class UserTest < MiniTest::Test

@@ -1,6 +1,6 @@
 require 'minitest/test'
 require 'minitest/autorun'
-require '../lib/blog_logger'
+require '../lib/blog/blog_logger'
 require '../lib/blog'
 
 class TestBlogLogger < Minitest::Test
