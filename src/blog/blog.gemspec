@@ -6,5 +6,5 @@ Gem::Specification.new do |s|
   s.description = 'Use this application to share your blog posts with others.'
   s.author = 'Ivan Sim'
   s.email = 'ihcsim@gmail.com'
-  s.files = ["lib/blog.rb","lib/blog/user.rb"]
+  s.files = ['lib/blog.rb','lib/blog/user.rb', 'lib/blog/blog_logger.rb']
 end
