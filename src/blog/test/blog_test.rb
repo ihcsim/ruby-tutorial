@@ -4,7 +4,7 @@
 require 'minitest/test'
 require 'minitest/autorun'
 require 'active_support/all'
-require './blog'
+require '../lib/blog'
 require './date_posted_tester'
 
 class BlogTest < Minitest::Test 
