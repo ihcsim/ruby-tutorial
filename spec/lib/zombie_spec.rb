@@ -1,5 +1,7 @@
 require "./spec_helper"
+require "rspec/collection_matchers"
 require "./zombie"
+
 describe Zombie do
   it "is named Ash" do
     zombie = Zombie.new
@@ -27,8 +29,13 @@ describe Zombie do
     zombie = Zombie.new(nanme: 'Ash', tweets: [tweet1, tweet2])
     expect(zombie.tweets).to include(tweet1)
     expect(zombie.tweets).to include(tweet2)
+  end
 
+  it 'starts with two weapons' do
+    zombie = Zombie.new(name: 'Ash')
+    expect(zombie).to have(2).weapons
 
   end
+
 
 end
