@@ -1,12 +1,19 @@
-class Zombie
-  attr_accessor :name, :brain
+require "./tweet"
 
-  def initialize
+class Zombie
+  attr_accessor :name, :brain, :tweets
+
+  def initialize(options={})
     @name = 'Ash'
     @brain = 0 
+    @tweets = options[:tweets]
   end 
 
   def hungry?
     true
+  end
+
+  def valid?
+    false 
   end
 end

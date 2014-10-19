@@ -15,4 +15,20 @@ describe Zombie do
     zombie = Zombie.new
     expect(zombie).to be_hungry
   end
+
+  it 'is invalid without a name' do
+    zombie = Zombie.new
+    expect(zombie).not_to be_valid
+  end
+
+  it 'include tweets' do
+    tweet1 = Tweet.new(status: 'Uuuuunhhhhh')
+    tweet2 = Tweet.new(status: 'Arrrrgg')
+    zombie = Zombie.new(nanme: 'Ash', tweets: [tweet1, tweet2])
+    expect(zombie.tweets).to include(tweet1)
+    expect(zombie.tweets).to include(tweet2)
+
+
+  end
+
 end
