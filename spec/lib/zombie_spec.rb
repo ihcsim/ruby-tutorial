@@ -1,5 +1,6 @@
 require "./spec_helper"
 require "rspec/collection_matchers"
+require "rspec/its"
 require "./zombie"
 
 describe Zombie do
@@ -9,20 +10,11 @@ describe Zombie do
     zombie = Zombie.new(name: 'Ash', tweets: [tweet1, tweet2])
   }
 
-  it "is named Ash" do
-    expect(subject.name).to eq 'Ash'
-  end
-
-  it "has no brains" do
-    expect(subject.brain).to be < 1
-  end
-
+  its(:name) { is_expected.to eq 'Ash' }
+  its(:brain) { is_expected.to be < 1 }
   it { is_expected.to be_hungry }
   it { is_expected.not_to be_valid } 
   it { is_expected.to have(2).weapons }
-
-  it 'include tweets' do
-    expect(subject.tweets).to include(tweet1)
-    expect(subject.tweets).to include(tweet2)
-  end
+  its(:tweets) { is_expected.to include(tweet1) }
+  its(:tweets) { is_expected.to include(tweet2) }
 end
